@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Impressive Portfolio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: linear-gradient(120deg, #f0f4f8 0%, #c9e7fa 100%);
+            color: #222;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(90deg, #0077b6 60%, #00b4d8 100%);
+            color: #fff;
+            padding: 2.5rem 0 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            left: -100px;
+            top: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #90e0ef 0%, transparent 70%);
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite alternate;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(40px) scale(1.1); }
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s cubic-bezier(.77,0,.18,1) 0.2s both;
+        }
+        header p {
+            margin: 0.7rem 0 0 0;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) 0.5s both;
+        }
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .container {
+            max-width: 950px;
+            margin: 2.5rem auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 6px 32px rgba(0,0,0,0.10);
+            padding: 2.5rem 2rem;
+            animation: fadeInUp 1.2s cubic-bezier(.77,0,.18,1) 0.7s both;
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        section {
+            margin-bottom: 2.7rem;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: sectionFadeIn 1s cubic-bezier(.77,0,.18,1) forwards;
+        }
+        section.about { animation-delay: 1s; }
+        section.skills { animation-delay: 1.2s; }
+        section.projects { animation-delay: 1.4s; }
+        section.contact { animation-delay: 1.6s; }
+        @keyframes sectionFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h2 {
+            color: #0077b6;
+            margin-bottom: 1.1rem;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #00b4d8 0%, #0077b6 100%);
+            border-radius: 2px;
+            margin-top: 8px;
+            animation: growBar 1s cubic-bezier(.77,0,.18,1) 1.1s both;
+        }
+        @keyframes growBar {
+            0% { width: 0; }
+            100% { width: 60px; }
+        }
+        .skills-list, .projects-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+        .skill, .project {
+            background: linear-gradient(120deg, #e0f7fa 60%, #caf0f8 100%);
+            border-radius: 10px;
+            padding: 1.2rem 1rem;
+            flex: 1 1 220px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .skill:hover, .project:hover {
+            transform: translateY(-8px) scale(1.04) rotate(-1deg);
+            box-shadow: 0 8px 32px rgba(0,183,255,0.13);
+            background: linear-gradient(120deg, #b6eaff 60%, #90e0ef 100%);
+        }
+        .project h3 {
+            margin-top: 0;
+            color: #0096c7;
+        }
+        .contact {
+            text-align: center;
+        }
+        .contact a {
+            color: #0077b6;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+        .contact a:hover {
+            color: #00b4d8;
+            text-decoration: underline;
+        }
+        .animated-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(90deg, #00b4d8 0%, #0077b6 100%);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 1.2rem;
+        }
+        .animated-btn:hover {
+            background: linear-gradient(90deg, #0077b6 0%, #00b4d8 100%);
+            transform: scale(1.07) translateY(-2px);
+        }
+        @media (max-width: 600px) {
+            .container { padding: 1rem; }
+            .skills-list, .projects-list { flex-direction: column; }
+            header h1 { font-size: 2rem; }
+            h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ayaan Malkotia</h1>
+        <p>Web Developer | Designer | Coder</p>
+    </header>
+    <div class="container">
+        <section class="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm a passionate web developer with experience in building modern, responsive websites and applications. I love to learn new technologies and solve real-world problems with code.</p>
+            <button class="animated-btn" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});">Contact Me</button>
+        </section>
+        <section class="skills">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill">HTML5</div>
+                <div class="skill">CSS3</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">React</div>
+                <div class="skill">Node.js</div>
+                <div class="skill">C/C++</div>
+                <div class="skill">Python</div>
+                <div class="skill">Git & GitHub</div>
+            </div>
+        </section>
+        <section class="projects">
+            <h2>Projects</h2>
+            <div class="projects-list">
+                <div class="project">
+                    <h3>Portfolio Website</h3>
+                    <p>A personal website to showcase my work and skills. Built with HTML, CSS, and JavaScript.</p>
+                </div>
+                <div class="project">
+                    <h3>Weather App</h3>
+                    <p>A web app that displays weather information using a public API. Built with React.</p>
+                </div>
+                <div class="project">
+                    <h3>To-Do List</h3>
+                    <p>A simple and elegant to-do list application with local storage support.</p>
+                </div>
+                <div class="project">
+                    <h3>Animated Landing Page</h3>
+                    <p>A visually stunning landing page with smooth animations and transitions using CSS and JavaScript.</p>
+                </div>
+            </div>
+        </section>
+        <section class="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+        </section>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
